@@ -9,8 +9,8 @@ It is generated with [Stainless](https://www.stainless.com/).
 Because it's not published yet, clone the repo and build it:
 
 ```sh
-git clone git@github.com:stainless-sdks/thrive-mcp-typescript.git
-cd thrive-mcp-typescript
+git clone git@github.com:karimsamir897/thrive-mcp.git
+cd thrive-mcp
 ./scripts/bootstrap
 ./scripts/build
 ```
@@ -40,7 +40,7 @@ For clients with a configuration JSON, it might look something like this:
   "mcpServers": {
     "thrive_mcp_api": {
       "command": "node",
-      "args": ["/path/to/local/thrive-mcp-typescript/packages/mcp-server"],
+      "args": ["/path/to/local/thrive-mcp/packages/mcp-server"],
       "env": {
         "THRIVE_MCP_BEARER_TOKEN": "My Bearer Token"
       }

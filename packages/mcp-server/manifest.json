@@ -8,9 +8,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stainless-sdks/thrive-mcp-typescript.git"
+    "url": "git+https://github.com/karimsamir897/thrive-mcp.git"
   },
-  "homepage": "https://github.com/stainless-sdks/thrive-mcp-typescript/tree/main/packages/mcp-server#readme",
+  "homepage": "https://github.com/karimsamir897/thrive-mcp/tree/main/packages/mcp-server#readme",
   "server": {
     "type": "node",
     "entry_point": "index.js",
