@@ -154,7 +154,10 @@ const remoteStainlessHandler = async ({
       readEnv('THRIVE_MCP_BEARER_TOKEN') ?? client.bearerToken,
       'set THRIVE_MCP_BEARER_TOKEN environment variable or provide bearerToken client option',
     ),
-    THRIVE_MCP_BASE_URL: readEnv('THRIVE_MCP_BASE_URL') ?? client.baseURL ?? undefined,
+    THRIVE_MCP_BASE_URL:
+      readEnv('THRIVE_MCP_BASE_URL') ?? readEnv('THRIVE_MCP_ENVIRONMENT') ?
+        undefined
+      : client.baseURL ?? undefined,
   };
   // Merge any upstream client envs from the request header, with upstream values taking precedence.
   const mergedClientEnvs = { ...localClientEnvs, ...reqContext.upstreamClientEnvs };
@@ -171,7 +174,7 @@ const remoteStainlessHandler = async ({
       project_name: 'thrive-mcp',
       code,
       intent,
-      client_opts: {},
+      client_opts: { environment: (readEnv('THRIVE_MCP_ENVIRONMENT') || undefined) as any },
     } satisfies WorkerInput),
   });
 
