@@ -37,6 +37,20 @@ const serverConfig: ServerConfig = {
       placeholder: 'My Bearer Token',
       type: 'password',
     },
+    {
+      key: 'environment',
+      label: 'Environment',
+      description: 'The environment to use for the client',
+      required: false,
+      default: 'staging',
+      placeholder: 'staging',
+      type: 'select',
+      options: [
+        { label: 'staging', value: 'staging' },
+        { label: 'thrive', value: 'thrive' },
+        { label: 'production', value: 'production' },
+      ],
+    },
   ],
 };
 

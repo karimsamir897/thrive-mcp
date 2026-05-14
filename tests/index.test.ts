@@ -328,13 +328,30 @@ describe('instantiate client', () => {
     test('empty env variable', () => {
       process.env['THRIVE_MCP_BASE_URL'] = ''; // empty
       const client = new ThriveMcp({ bearerToken: 'My Bearer Token' });
-      expect(client.baseURL).toEqual('https://app.crmthrive.com');
+      expect(client.baseURL).toEqual('https://staging.crmthrive.com');
     });
 
     test('blank env variable', () => {
       process.env['THRIVE_MCP_BASE_URL'] = '  '; // blank
       const client = new ThriveMcp({ bearerToken: 'My Bearer Token' });
-      expect(client.baseURL).toEqual('https://app.crmthrive.com');
+      expect(client.baseURL).toEqual('https://staging.crmthrive.com');
+    });
+
+    test('env variable with environment', () => {
+      process.env['THRIVE_MCP_BASE_URL'] = 'https://example.com/from_env';
+
+      expect(
+        () => new ThriveMcp({ bearerToken: 'My Bearer Token', environment: 'staging' }),
+      ).toThrowErrorMatchingInlineSnapshot(
+        `"Ambiguous URL; The \`baseURL\` option (or THRIVE_MCP_BASE_URL env var) and the \`environment\` option are given. If you want to use the environment you must pass baseURL: null"`,
+      );
+
+      const client = new ThriveMcp({
+        bearerToken: 'My Bearer Token',
+        baseURL: null,
+        environment: 'staging',
+      });
+      expect(client.baseURL).toEqual('https://staging.crmthrive.com');
     });
 
     test('in request options', () => {
