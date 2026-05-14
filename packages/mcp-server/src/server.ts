@@ -17,6 +17,7 @@ import { getInstructions } from './instructions';
 import { McpOptions } from './options';
 import { blockedMethodsForCodeTool } from './methods';
 import { HandlerFunction, McpRequestContext, ToolCallResult, McpTool } from './types';
+import { readEnv } from './util';
 
 export const newMcpServer = async ({
   stainlessApiKey,
@@ -28,7 +29,7 @@ export const newMcpServer = async ({
   new McpServer(
     {
       name: 'thrive_mcp_api',
-      version: '0.1.0',
+      version: '0.2.0',
     },
     {
       instructions: await getInstructions({ stainlessApiKey, customInstructionsPath }),
@@ -81,6 +82,7 @@ export async function initMcpServer(params: {
     if (!_client) {
       try {
         _client = new ThriveMcp({
+          ...{ environment: (readEnv('THRIVE_MCP_ENVIRONMENT') || undefined) as any },
           logger,
           ...params.clientOptions,
           defaultHeaders: {
