@@ -32,9 +32,9 @@ import {
 import { isEmptyObj } from './internal/utils/values';
 
 const environments = {
+  production: 'https://app.leadsnap.com',
   staging: 'https://staging.crmthrive.com',
   thrive: 'https://app.crmthrive.com',
-  production: 'https://app.leadsnap.com',
 };
 type Environment = keyof typeof environments;
 
@@ -48,9 +48,9 @@ export interface ClientOptions {
    * Specifies the environment to use for the API.
    *
    * Each environment maps to a different base URL:
+   * - `production` corresponds to `https://app.leadsnap.com`
    * - `staging` corresponds to `https://staging.crmthrive.com`
    * - `thrive` corresponds to `https://app.crmthrive.com`
-   * - `production` corresponds to `https://app.leadsnap.com`
    */
   environment?: Environment | undefined;
 
@@ -145,8 +145,8 @@ export class ThriveMcp {
    * API Client for interfacing with the Thrive Mcp API.
    *
    * @param {string | undefined} [opts.bearerToken=process.env['THRIVE_MCP_BEARER_TOKEN'] ?? undefined]
-   * @param {Environment} [opts.environment=staging] - Specifies the environment URL to use for the API.
-   * @param {string} [opts.baseURL=process.env['THRIVE_MCP_BASE_URL'] ?? https://staging.crmthrive.com] - Override the default base URL for the API.
+   * @param {Environment} [opts.environment=production] - Specifies the environment URL to use for the API.
+   * @param {string} [opts.baseURL=process.env['THRIVE_MCP_BASE_URL'] ?? https://app.leadsnap.com] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {MergedRequestInit} [opts.fetchOptions] - Additional `RequestInit` options to be passed to `fetch` calls.
    * @param {Fetch} [opts.fetch] - Specify a custom `fetch` function implementation.
@@ -169,7 +169,7 @@ export class ThriveMcp {
       bearerToken,
       ...opts,
       baseURL,
-      environment: opts.environment ?? 'staging',
+      environment: opts.environment ?? 'production',
     };
 
     if (baseURL && opts.environment) {
@@ -178,7 +178,7 @@ export class ThriveMcp {
       );
     }
 
-    this.baseURL = options.baseURL || environments[options.environment || 'staging'];
+    this.baseURL = options.baseURL || environments[options.environment || 'production'];
     this.timeout = options.timeout ?? ThriveMcp.DEFAULT_TIMEOUT /* 1 minute */;
     this.logger = options.logger ?? console;
     const defaultLogLevel = 'warn';
@@ -234,7 +234,7 @@ export class ThriveMcp {
    * Check whether the base URL is set to its default.
    */
   #baseURLOverridden(): boolean {
-    return this.baseURL !== environments[this._options.environment || 'staging'];
+    return this.baseURL !== environments[this._options.environment || 'production'];
   }
 
   protected defaultQuery(): Record<string, string | undefined> | undefined {
