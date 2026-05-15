@@ -33,8 +33,8 @@ import { isEmptyObj } from './internal/utils/values';
 
 const environments = {
   Leadsnap: 'https://app.leadsnap.com',
-  Staging: 'https://staging.crmthrive.com',
   Thrive: 'https://app.crmthrive.com',
+  Staging: 'https://staging.crmthrive.com',
 };
 type Environment = keyof typeof environments;
 
@@ -49,8 +49,8 @@ export interface ClientOptions {
    *
    * Each environment maps to a different base URL:
    * - `Leadsnap` corresponds to `https://app.leadsnap.com`
-   * - `Staging` corresponds to `https://staging.crmthrive.com`
    * - `Thrive` corresponds to `https://app.crmthrive.com`
+   * - `Staging` corresponds to `https://staging.crmthrive.com`
    */
   environment?: Environment | undefined;
 

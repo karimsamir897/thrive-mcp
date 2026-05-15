@@ -47,8 +47,8 @@ const serverConfig: ServerConfig = {
       type: 'select',
       options: [
         { label: 'Leadsnap', value: 'Leadsnap' },
-        { label: 'Staging', value: 'Staging' },
         { label: 'Thrive', value: 'Thrive' },
+        { label: 'Staging', value: 'Staging' },
       ],
     },
   ],
