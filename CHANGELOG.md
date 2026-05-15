@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0 (2026-05-15)
+
+Full Changelog: [v0.2.0...v0.3.0](https://github.com/karimsamir897/thrive-mcp/compare/v0.2.0...v0.3.0)
+
+### Features
+
+* **api:** manual updates, re order env ([d2b3026](https://github.com/karimsamir897/thrive-mcp/commit/d2b302690743becf9c31417d5c0810483d2e8eda))
+
 ## 0.2.0 (2026-05-14)
 
 Full Changelog: [v0.1.0...v0.2.0](https://github.com/karimsamir897/thrive-mcp/compare/v0.1.0...v0.2.0)
