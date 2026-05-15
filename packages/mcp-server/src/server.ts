@@ -29,7 +29,7 @@ export const newMcpServer = async ({
   new McpServer(
     {
       name: 'thrive_mcp_api',
-      version: '0.4.0',
+      version: '0.5.0',
     },
     {
       instructions: await getInstructions({ stainlessApiKey, customInstructionsPath }),
