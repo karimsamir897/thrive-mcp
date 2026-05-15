@@ -64,7 +64,7 @@ const INSTRUCTIONS_FETCH_TIMEOUT_MS = 5000;
 
 function fallbackMcpServer(): McpServer {
   return new McpServer(
-    { name: 'thrive_mcp_api', version: '0.2.0' },
+    { name: 'thrive_mcp_api', version: '0.3.0' },
     { capabilities: { tools: {}, logging: {} } },
   );
 }
