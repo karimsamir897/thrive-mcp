@@ -33,7 +33,7 @@ import ThriveMcp from 'thrive-mcp';
 
 const client = new ThriveMcp({
   bearerToken: process.env['THRIVE_MCP_BEARER_TOKEN'], // This is the default and can be omitted
-  environment: 'staging', // or 'production' | 'thrive'; defaults to 'production'
+  environment: 'Staging', // or 'Leadsnap' | 'Thrive'; defaults to 'Leadsnap'
 });
 
 const response = await client.public.api.v1.heatmap.generateGridPoints({
@@ -56,7 +56,7 @@ import ThriveMcp from 'thrive-mcp';
 
 const client = new ThriveMcp({
   bearerToken: process.env['THRIVE_MCP_BEARER_TOKEN'], // This is the default and can be omitted
-  environment: 'staging', // or 'production' | 'thrive'; defaults to 'production'
+  environment: 'Staging', // or 'Leadsnap' | 'Thrive'; defaults to 'Leadsnap'
 });
 
 const params: ThriveMcp.Public.API.V1.HeatmapGenerateGridPointsParams = {

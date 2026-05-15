@@ -341,7 +341,7 @@ describe('instantiate client', () => {
       process.env['THRIVE_MCP_BASE_URL'] = 'https://example.com/from_env';
 
       expect(
-        () => new ThriveMcp({ bearerToken: 'My Bearer Token', environment: 'production' }),
+        () => new ThriveMcp({ bearerToken: 'My Bearer Token', environment: 'Leadsnap' }),
       ).toThrowErrorMatchingInlineSnapshot(
         `"Ambiguous URL; The \`baseURL\` option (or THRIVE_MCP_BASE_URL env var) and the \`environment\` option are given. If you want to use the environment you must pass baseURL: null"`,
       );
@@ -349,7 +349,7 @@ describe('instantiate client', () => {
       const client = new ThriveMcp({
         bearerToken: 'My Bearer Token',
         baseURL: null,
-        environment: 'production',
+        environment: 'Leadsnap',
       });
       expect(client.baseURL).toEqual('https://app.leadsnap.com');
     });

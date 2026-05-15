@@ -10,7 +10,7 @@ You can run the MCP Server directly via `npx`:
 
 ```sh
 export THRIVE_MCP_BEARER_TOKEN="My Bearer Token"
-export THRIVE_MCP_ENVIRONMENT="production"
+export THRIVE_MCP_ENVIRONMENT="Leadsnap"
 npx -y thrive-mcp-mcp@latest
 ```
 
@@ -29,7 +29,7 @@ For clients with a configuration JSON, it might look something like this:
       "args": ["-y", "thrive-mcp-mcp"],
       "env": {
         "THRIVE_MCP_BEARER_TOKEN": "My Bearer Token",
-        "THRIVE_MCP_ENVIRONMENT": "production"
+        "THRIVE_MCP_ENVIRONMENT": "Leadsnap"
       }
     }
   }
